@@ -1,14 +1,19 @@
 import React from "react";
 import RootNavigator from "./src/routes/RootNavigator";
 import { View } from "react-native";
-
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 const App = ({ children, edges }: any) => {
   return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaProvider>
-            <RootNavigator />
+        <BottomSheetModalProvider>
+          <RootNavigator />
+        </BottomSheetModalProvider>
       </SafeAreaProvider>
+    </GestureHandlerRootView>
   );
 };
 

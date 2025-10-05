@@ -1,4 +1,4 @@
-package com.wireframenelution
+package com.vimazi
 
 import android.app.Application
 import com.facebook.react.PackageList

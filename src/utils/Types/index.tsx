@@ -71,19 +71,24 @@ export type InputProps = {
   onFocus?: any;
   disable?: boolean;
   fontFamily?: any;
+  rightSource?:any
+  onRightSource?:any
+  leftSource?:any
+  rightSourceSize?:any
 };
 
 
 export type DropDownProps = {
-  height:any,
-  width:any,
-  borderRadius:any,
-  backgroundColor:string,
-  onRightSource:()=>void,
-  placeholder:any,
-  value:any,
-  data:[],
-  top:any,
-  onActions:(item:any)=>void,
+  height?:any,
+  width?:any,
+  borderRadius?:any,
+  backgroundColor?:string,
+  onRightSource?:()=>void,
+  placeholder?:any,
+  value?:any,
+  data?:[],
+  top?:any,
+  onActions?:(item:any)=>void,
+  label?:any
 };
 

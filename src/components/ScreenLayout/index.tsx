@@ -11,12 +11,12 @@ import {
 import { theme } from "../../utils/Themes";
 import { SafeAreaView } from "react-native-safe-area-context";
 import sizeHelper from "../../utils/Helpers";
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 interface ScreenLayoutProps {
   children?: React.ReactNode;
   style?: ViewStyle;
   backgroundColor?: string;
-  backgroundImg?: any;
   barStyle?: StatusBarStyle; // "light-content" | "dark-content" | "default"
   translucent?: boolean;
 }
@@ -24,48 +24,38 @@ interface ScreenLayoutProps {
 const ScreenLayout: React.FC<ScreenLayoutProps> = ({
   children,
   style,
-  backgroundColor = theme.colors.secondary,
-  backgroundImg,
+  backgroundColor = theme.colors.white,
 }) => {
-  if (backgroundImg) {
-    return (
-      <>
-        
-        <ImageBackground
-          source={backgroundImg}
-          style={styles.background}
-          resizeMode="cover"
-        >
-          <SafeAreaView style={[styles.container, style]}>
-            {children}
-          </SafeAreaView>
-        </ImageBackground>
-      </>
-    );
-  }
+
+  const insets = useSafeAreaInsets();
 
   return (
     <>
      
-      <SafeAreaView style={[styles.background, { backgroundColor }]}>
+      <View style={[styles.background, { backgroundColor,
+          paddingTop: sizeHelper.calHp(Platform.OS == "ios" ? 100 : sizeHelper.calHp(insets.top+30)),
+
+
+       }]}>
         <View style={[styles.container, style]}>{children}</View>
-      </SafeAreaView>
+      </View>
     </>
   );
 };
 
 const styles = StyleSheet.create({
-  background: {
+background: {
     flex: 1,
     width: "100%",
     height: "100%",
+    
   },
   container: {
     flex: 1,
-    backgroundColor: "transparent",
-    paddingHorizontal:sizeHelper.calWp(35),
-    paddingTop:sizeHelper.calHp(Platform.OS=="ios"?20: 35),
-    gap:sizeHelper.calHp(30)
+    backgroundColor:theme.colors.white,
+    gap: sizeHelper.calHp(30),
+    paddingHorizontal: sizeHelper.calWp(30),
+
   },
 });
 

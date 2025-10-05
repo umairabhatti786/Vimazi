@@ -31,12 +31,12 @@ const CustomButton = ({
       backgroundColor: bgColor || theme.colors.primary,
       justifyContent: 'center',
       alignItems: 'center',
-      borderRadius: sizeHelper.calHp(borderRadius || 75),
+      borderRadius: sizeHelper.calHp(borderRadius || 20),
       borderWidth: borderWidth || 0,
       borderColor: borderColor,
       paddingHorizontal: paddingHorizontal,
       flexDirection: 'row',
-      gap: sizeHelper.calWp(15),
+      gap: sizeHelper.calWp(20),
     };
 
     return [baseStyle, style] as StyleProp<ViewStyle>;
@@ -58,14 +58,15 @@ const CustomButton = ({
       activeOpacity={0.5}
       style={memoizedStyle}
     >
+         {children}
       <CustomText
         text={text}
-        color={textColor || theme.colors.black}
+        color={textColor || theme.colors.white}
         size={size || 22}
-        // fontWeight={"600"}
-        fontFam={fontFam || fonts.Inter_Medium}
+        fontWeight={"600"}
+        fontFam={fontFam || fonts.SF_Pro_Medium}
       />
-      {children}
+   
     </TouchableOpacity>
   );
 };
