@@ -1,0 +1,1 @@
+/Users/mac/Documents/Vimazi/android/app/build/intermediates/cxx/RelWithDebInfo/4i612s5a/obj/arm64-v8a

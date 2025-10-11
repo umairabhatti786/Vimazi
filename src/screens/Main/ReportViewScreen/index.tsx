@@ -17,7 +17,8 @@ import { fonts } from "../../../utils/Themes/fonts";
 import CustomButtom from "../../../components/Button";
 import LinearGradient from "react-native-linear-gradient";
 
-const ReportViewScreen = ({ navigation }: any) => {
+const ReportViewScreen = ({ navigation,route }: any) => {
+  const isResult=route?.params?.isResult
   const Header = () => {
     return (
       <View
@@ -383,6 +384,49 @@ const ReportViewScreen = ({ navigation }: any) => {
             }}
           >
             <CustomText
+              text={"Plane adduction"}
+              size={23}
+              fontFam={fonts.SF_Pro_Semibold}
+              fontWeight={"600"}
+            />
+
+            <Image
+              style={{
+                height: sizeHelper.calHp(270),
+                borderRadius: sizeHelper.calWp(30),
+                width: "100%",
+                resizeMode: "contain",
+              }}
+              source={images.adduction}
+            />
+
+            <View style={{ ...appStyles.rowjustify, width: "100%" }}>
+              <ReportDetailCard
+                alignItems={"center"}
+                title={"Left Mean ± SD"}
+                label={"12.4 ± 1.3 (12)"}
+              />
+              <ReportDetailCard
+                alignItems={"center"}
+                title={"Right Mean ± SD"}
+                label={"14.1 ± 1.5 (12)"}
+              />
+
+              <ReportDetailCard
+                alignItems={"center"}
+                title={"Δ / Combined"}
+                label={"+1.7"}
+              />
+            </View>
+          </View>
+
+          <View
+            style={{
+              ...styles.box,
+              padding: sizeHelper.calWp(20),
+            }}
+          >
+            <CustomText
               text={"Transverse Plane abduction"}
               size={23}
               fontFam={fonts.SF_Pro_Semibold}
@@ -421,6 +465,7 @@ const ReportViewScreen = ({ navigation }: any) => {
             </View>
           </View>
 
+        
           <View
             style={{
               ...styles.box,
@@ -572,37 +617,44 @@ const ReportViewScreen = ({ navigation }: any) => {
          
         }}
       >
+        {
+          isResult&&(
 
-         <View
-        style={appStyles.rowjustify}
-        >
+            <View
+            style={appStyles.rowjustify}
+            >
+    
+                 <CustomButtom
+              text="Save Result"
+              height={65}
+              textColor={theme.colors.primary}
+              bgColor={"transparent"}
+              borderWidth={1}
+              fontFam={fonts.SF_Pro_Semibold}
+              borderColor={theme.colors.border}
+              //    onPress={() => navigation.navigate("BottomTab")}
+              width={"49%"}
+            />
+    
+                 <CustomButtom
+              text="Frontal Plane Jerk"
+              height={65}
+              textColor={theme.colors.white}
+              bgColor={theme.colors.primary}
+              borderWidth={1}
+              fontFam={fonts.SF_Pro_Semibold}
+              borderColor={theme.colors.border}
+                 onPress={() => navigation.navigate("FrontalPlaneJerkScreen")}
+              width={"49%"}
+            />
+           
+    
+            </View>
 
-             <CustomButtom
-          text="Save Result"
-          height={65}
-          textColor={theme.colors.primary}
-          bgColor={"transparent"}
-          borderWidth={1}
-          fontFam={fonts.SF_Pro_Semibold}
-          borderColor={theme.colors.border}
-          //    onPress={() => navigation.navigate("BottomTab")}
-          width={"49%"}
-        />
+          )
+        }
 
-             <CustomButtom
-          text="Frontal Plane Jerk"
-          height={65}
-          textColor={theme.colors.white}
-          bgColor={theme.colors.primary}
-          borderWidth={1}
-          fontFam={fonts.SF_Pro_Semibold}
-          borderColor={theme.colors.border}
-             onPress={() => navigation.navigate("FrontalPlaneJerkScreen")}
-          width={"49%"}
-        />
-       
-
-        </View>
+     
 
 
         <View
