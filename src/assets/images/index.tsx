@@ -46,7 +46,9 @@ select_weight:require("../images/select_weight.png"),
 flash:require("../images/flash.png"),
 reload:require("../images/reload.png"),
 treadmill:require("../images/treadmill.png"),
-adduction:require("../images/adduction.png"),
+plane:require("../images/plane.png"),
+commentry_img:require("../images/commentry_img.png"),
+
 
 
 }

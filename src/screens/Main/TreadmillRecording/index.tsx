@@ -329,7 +329,7 @@ const TreadmillRecordingScreen = ({ navigation }: any) => {
 
                 setTimeout(() => {
                   setIsPreparingVisible(false);
-                  navigation.navigate("ReportViewScreen",{isResult:true});
+                  navigation.navigate("ReportViewScreen",{analyze_Result:true});
                 }, 2000);
               }}
               width={"80%"}

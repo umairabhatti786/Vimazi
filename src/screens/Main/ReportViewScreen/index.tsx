@@ -16,9 +16,10 @@ import CustomText from "../../../components/Text";
 import { fonts } from "../../../utils/Themes/fonts";
 import CustomButtom from "../../../components/Button";
 import LinearGradient from "react-native-linear-gradient";
+import CustomHeader from "../../../components/CustomHeader";
 
 const ReportViewScreen = ({ navigation,route }: any) => {
-  const isResult=route?.params?.isResult
+  const analyze_Result=route?.params?.analyze_Result
   const Header = () => {
     return (
       <View
@@ -60,7 +61,7 @@ const ReportViewScreen = ({ navigation,route }: any) => {
       >
         <CustomText
           text={title}
-          size={17}
+          size={15}
           color={theme.colors.text_gray}
           fontFam={fonts.SF_Pro_Medium}
           fontWeight={"600"}
@@ -68,6 +69,7 @@ const ReportViewScreen = ({ navigation,route }: any) => {
 
         <CustomText
           text={label}
+          size={16}
           fontFam={fonts.SF_Pro_Semibold}
           fontWeight={"600"}
         />
@@ -78,7 +80,10 @@ const ReportViewScreen = ({ navigation,route }: any) => {
   return (
     <>
       <ScreenLayout>
-        <Header />
+        <CustomHeader
+        onPress={()=>navigation.goBack()}
+        title={analyze_Result?"Analyze Result":"Report view"}
+         />
         <ScrollView
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{
@@ -335,7 +340,8 @@ const ReportViewScreen = ({ navigation,route }: any) => {
             </View>
           </View>
 
-          <View
+
+            <View
             style={{
               ...styles.box,
               padding: sizeHelper.calWp(20),
@@ -395,9 +401,14 @@ const ReportViewScreen = ({ navigation,route }: any) => {
                 height: sizeHelper.calHp(270),
                 borderRadius: sizeHelper.calWp(30),
                 width: "100%",
+<<<<<<< HEAD
                 resizeMode: "contain",
               }}
               source={images.adduction}
+=======
+              }}
+              source={images.plane}
+>>>>>>> 29df111cc4e902e17109fe1ef38b94fa241ba80c
             />
 
             <View style={{ ...appStyles.rowjustify, width: "100%" }}>
@@ -420,6 +431,11 @@ const ReportViewScreen = ({ navigation,route }: any) => {
             </View>
           </View>
 
+<<<<<<< HEAD
+=======
+        
+
+>>>>>>> 29df111cc4e902e17109fe1ef38b94fa241ba80c
           <View
             style={{
               ...styles.box,
@@ -607,17 +623,17 @@ const ReportViewScreen = ({ navigation,route }: any) => {
 
           shadowOffset: {
             width: 0,
-            height: Platform.OS=="ios"?-2: -40,
+            height: Platform.OS == "ios" ? -2 : -40,
           },
-          shadowOpacity: Platform.OS=="ios"? 0.5: 4,
+          shadowOpacity: Platform.OS == "ios" ? 0.5 : 4,
           shadowColor: theme.colors.black,
           shadowRadius: 20,
           elevation: 40,
-          gap:sizeHelper.calWp(30)
-         
+          gap: sizeHelper.calWp(30),
         }}
       >
         {
+<<<<<<< HEAD
           isResult&&(
 
             <View
@@ -655,56 +671,83 @@ const ReportViewScreen = ({ navigation,route }: any) => {
         }
 
      
+=======
+          analyze_Result&&(
 
+              <View style={appStyles.rowjustify}>
+          <CustomButtom
+            text="Save Result"
+            height={65}
+            textColor={theme.colors.primary}
+            bgColor={"transparent"}
+            borderWidth={1}
+            fontFam={fonts.SF_Pro_Semibold}
+            borderColor={theme.colors.border}
+            //    onPress={() => navigation.navigate("BottomTab")}
+            width={"49%"}
+          />
 
-        <View
-        style={appStyles.rowjustify}
-        >
-
-             <CustomButtom
-          text="Export csv"
-          height={65}
-          textColor={theme.colors.primary}
-          bgColor={"transparent"}
-          borderWidth={1}
-          fontFam={fonts.SF_Pro_Semibold}
-          borderColor={theme.colors.primary}
-          //    onPress={() => navigation.navigate("BottomTab")}
-          width={"32%"}
-        >
-          <Image style={styles.icon} source={images.download} />
-        </CustomButtom>
-
-        <CustomButtom
-          text="Export pdf"
-          height={65}
-          textColor={theme.colors.primary}
-          bgColor={"transparent"}
-          borderWidth={1}
-          fontFam={fonts.SF_Pro_Semibold}
-          borderColor={theme.colors.primary}
-          //    onPress={() => navigation.navigate("BottomTab")}
-          width={"32%"}
-        >
-          <Image style={styles.icon} source={images.download} />
-        </CustomButtom>
-
-        <CustomButtom
-          text="Delete"
-          height={65}
-          textColor={theme.colors.primary}
-          bgColor={"transparent"}
-          borderWidth={1}
-          fontFam={fonts.SF_Pro_Semibold}
-          borderColor={theme.colors.primary}
-          //    onPress={() => navigation.navigate("BottomTab")}
-          width={"32%"}
-        >
-          <Image style={styles.icon} source={images.delete} />
-        </CustomButtom>
-
+          <CustomButtom
+            text="Frontal Plane Jerk"
+            height={65}
+            textColor={theme.colors.white}
+            bgColor={theme.colors.primary}
+            borderWidth={1}
+            fontFam={fonts.SF_Pro_Semibold}
+            borderColor={theme.colors.border}
+            onPress={() => navigation.navigate("FrontalPlaneJerkScreen")}
+            width={"49%"}
+          />
         </View>
-       
+>>>>>>> 29df111cc4e902e17109fe1ef38b94fa241ba80c
+
+          )
+        }
+      
+
+        <View style={appStyles.rowjustify}>
+          <CustomButtom
+            text="Export csv"
+            height={65}
+            textColor={theme.colors.primary}
+            bgColor={"transparent"}
+            borderWidth={1}
+            fontFam={fonts.SF_Pro_Semibold}
+            borderColor={theme.colors.primary}
+            //    onPress={() => navigation.navigate("BottomTab")}
+            width={"32%"}
+          >
+            <Image style={styles.icon} source={images.download} />
+          </CustomButtom>
+
+          <CustomButtom
+            text="Export pdf"
+            height={65}
+            textColor={theme.colors.primary}
+            bgColor={"transparent"}
+            borderWidth={1}
+            fontFam={fonts.SF_Pro_Semibold}
+            borderColor={theme.colors.primary}
+            //    onPress={() => navigation.navigate("BottomTab")}
+            width={"32%"}
+          >
+            <Image style={styles.icon} source={images.download} />
+          </CustomButtom>
+
+          <CustomButtom
+            text="Delete"
+            height={65}
+            textColor={theme.colors.primary}
+            bgColor={"transparent"}
+            borderWidth={1}
+            fontFam={fonts.SF_Pro_Semibold}
+            borderColor={theme.colors.primary}
+            //    onPress={() => navigation.navigate("BottomTab")}
+            width={"32%"}
+          >
+            <Image style={styles.icon} source={images.delete} />
+          </CustomButtom>
+        </View>
       </View>
     </>
   );
@@ -738,7 +781,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: theme.colors.border,
     overflow: "hidden",
-    gap: sizeHelper.calHp(15),
+    gap: sizeHelper.calHp(25),
   },
 
   license_infoDetail: {
